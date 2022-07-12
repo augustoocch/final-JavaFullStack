@@ -79,10 +79,10 @@
                 <h1 id="titleLogin">Ingresar al sistema</h1>
                 <form class="formLogin" action="${pageContext.request.contextPath}/ServletControlador?accion=login" method="POST">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required>
                     </div>
                     <button type="submit" class="btn btn-primary ingresar">Ingresar</button>
                     <label>¿No tienes cuenta?</label><a href="register.jsp"> Registrate</a>

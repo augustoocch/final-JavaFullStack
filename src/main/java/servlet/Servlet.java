@@ -3,7 +3,6 @@ package servlet;
 import Data.UserConnect;
 import domain.User;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,14 +48,16 @@ public class Servlet extends HttpServlet{
         User usuarioRegistro = new User(nombre, apellido, email, genero, password);
     
         //Se inserta       
-        int registroModificado = new UserConnect().insertar(usuarioRegistro);
+        boolean registroModificado = new UserConnect().insertar(usuarioRegistro);
         
         //Se lleva a pagina de error en el registro a desplegar el listado
         if(usuarioRegistro.isValid()){
             response.sendRedirect("htmls/exito.jsp");
+            request.setAttribute("emailSuccess", email);
         } else {
-            response.getWriter().print("Email ya existente");
-            request.setAttribute("message", "Email ya se registrado");          
+            System.out.println("Usuario ya registrado, saliendo del servlet al error.jsp");
+            request.setAttribute("emailError", email);
+            response.sendRedirect("htmls/error.jsp");
         }
     }
     
@@ -79,6 +80,7 @@ public class Servlet extends HttpServlet{
             System.out.println("Validacion generada, email y passw correctos");
         } else {
             response.getWriter().print("Credenciales incorrectas");
+            response.sendRedirect("htmls/errorLogin.jsp");
             //HttpSession session = request.getSession();
             System.out.println("Validacion incorecta");
         }

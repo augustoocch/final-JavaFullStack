@@ -1,28 +1,12 @@
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="en_US"/>
-<%@page import="domain.User"%>
-
-<%! 
-    
-    public  User usuarioError;
-
-    public User getUserError(User user){
-
-        this.usuarioError = user;
-        usuarioError.getEmail();
-        
-        return null;
-    }
-}
-%>
 
 <!DOCTYPE html>
 <html>
 
     <head>
-        <title>B.A - Register</title>
+        <title>B.A - Error de registro</title>
         <meta charset='utf-8'>
         <meta name="author" content="Augusto Occhiuzzi"/>
         <meta name='viewport' content='width=device-width, initial-scale=1'/>
@@ -43,7 +27,7 @@
         
         <body>
             <header>
-              <nav class="navbar fixed-top navbar-expand-lg" style="background-color: black;">
+              <nav class="navbar fixed-top navbar-expand-lg">
                 <img id="logoNav" src="../images/logo_BA.png"/>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -58,17 +42,17 @@
                             aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);">
                             Servicios
                           </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: black;">
-                            <a class="dropdown-item" href="#" style="color: white;">Venta</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Colocacion</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Reparacion</a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Venta</a>
+                            <a class="dropdown-item" href="#">Colocacion</a>
+                            <a class="dropdown-item" href="#">Reparacion</a>
                             <a class="nav-link dropright dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                               Pedidos
                             </a>
-                              <div class="dropdown-menu" style="background-color: black;">
-                                <a class="dropdown-item" href="login.jsp" style="color: white;">Ingresar</a>
-                                <a class="dropdown-item" href="#" style="color: white;">Consultar</a>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="login.jsp">Ingresar</a>
+                                <a class="dropdown-item" href="#">Consultar</a>
                               </div>
                           </div>
                         </li>
@@ -76,10 +60,10 @@
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);">
                             Acerca de
                           </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: black;">
-                            <a class="dropdown-item" href="#" style="color: white;">Nosotros</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Nuestra Mision</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Historia</a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Nosotros</a>
+                            <a class="dropdown-item" href="#">Nuestra Mision</a>
+                            <a class="dropdown-item" href="#">Historia</a>
                           </div>
                         <li class="nav-item">
                             <a class="nav-link mr-4" href="#form" style="color: rgb(255, 255, 255);">Contacto</a>
@@ -91,32 +75,13 @@
             
             <main>
               <div class="completeForm">
-                <img class="centerLogo" src="../images/BAlogo.png" />
-                <h1 id="titleLogin">Registro</h1>
-                <form class="formLogin" action="${pageContext.request.contextPath}/ServletControlador?accion=crear" Method="POST">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name"  name="nombre" placeholder="Ingrese su nombre">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su apellido">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email">
-                    </div>
-                    <label>El usuario <%=this.getUserError()%> ya se encuentra registrado</label>
-                    <div class="form-group">
-                        <select type="text" class="form-control" name="genero" id="genero" >
-                            <option value="masculino">Masculino</option>
-                            <option value="femenino" selected>Femenino</option>
-                            <option value="otro">Otro</option>
-                        </select>    
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="passRegister" name="password" placeholder="Ingrese su contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-primary ingresar">Registrarse</button>
-                    <label>Volver al</label><a href="login.jsp"> inicio de sesion</a>
-                </form>  
+                <img class="centerLogo" src="../images/error.png" />
+                <h1 id="titleLogin">Registro invalido</h1>
+                <br>
+                <label>El usuario "<%= request.getAttribute("emailError") %>", ya existe.</label>
+                <div>
+                    <p id="volver"><b>Volver al<b></p><a href="register.jsp"> formulario de registro</a>
+                </div>    
               </div>    
             </main>
     </body>

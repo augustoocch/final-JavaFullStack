@@ -11,18 +11,18 @@ import java.util.List;
 public class UserConnect {
     
     private static final String SQL_SELECT = "SELECT id, nombre, apellido, email, genero, password "
-            + " FROM finalBackend";
+            + " FROM usuarios";
 
-    private static final String SQL_SELECT_LOGIN = "SELECT * FROM finalBackend WHERE email = ? and password = ?";
+    private static final String SQL_SELECT_LOGIN = "SELECT * FROM usuarios WHERE email = ? and password = ?";
     
-        private static final String SQL_VALIDATE_EMAIL = "SELECT * FROM finalBackend WHERE email = ?";
+        private static final String SQL_VALIDATE_EMAIL = "SELECT * FROM usuarios WHERE email = ?";
 
-    private static final String SQL_INSERT = "INSERT INTO finalBackend(nombre, apellido, email, genero, password) "
+    private static final String SQL_INSERT = "INSERT INTO usuarios(nombre, apellido, email, genero, password) "
             + " VALUES(?, ?, ?, ?, ?)";
 
-    private static final String SQL_UPDATE = "UPDATE finalBackend + SET nombre=?, apellido=?, email=?, genero=?, password=?, WHERE id=?";
+    private static final String SQL_UPDATE = "UPDATE usuarios + SET nombre=?, apellido=?, email=?, genero=?, password=?, WHERE id=?";
 
-    private static final String SQL_DELETE = "DELETE FROM finalBackend WHERE id = ?";
+    private static final String SQL_DELETE = "DELETE FROM usuarios WHERE id = ?";
     
 
 
@@ -59,7 +59,7 @@ public class UserConnect {
     }
     
     
-    public int insertar(User user) {
+    public boolean insertar(User user) {
         
         Connection conn1 = null;
         PreparedStatement stmt1 = null;
@@ -78,11 +78,11 @@ public class UserConnect {
             
             status = rs.next();
             
-            if (status) {
-                System.out.println("Usuario ya existente");
+            if (status == true) {
                 user.setValid(false);
+                System.out.println("Usuario ya existente");
             } else {
-                user.setValid(status);
+                user.setValid(true);
                 conn = dataBaseConect.getConnection();
                 stmt = conn.prepareStatement(SQL_INSERT);
                 stmt.setString(1, user.getNombre());
@@ -95,13 +95,13 @@ public class UserConnect {
                 System.out.println("Exito en el Registro");
             }
             
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            dataBaseConect.close(stmt);
-            dataBaseConect.close(conn);
-        }
-        return rows;
+        } catch (SQLException e) {
+            printSQLException(e);
+        } //finally {
+            //dataBaseConect.close(stmt);
+            //dataBaseConect.close(conn);
+        
+        return status;
     }
 
     
