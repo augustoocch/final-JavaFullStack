@@ -5,8 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class UserConnect {
     
@@ -24,42 +23,11 @@ public class UserConnect {
 
     private static final String SQL_DELETE = "DELETE FROM usuarios WHERE id = ?";
     
-
-
-
-    public List<User> listar() {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        User user = null;
-        List<User> users = new ArrayList<>();
-        try {
-            conn = dataBaseConect.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT);
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String nombre = rs.getString("nombre");
-                String apellido = rs.getString("apellido");
-                String email = rs.getString("email");
-                String genero = rs.getString("telefono");
-                String password = rs.getString("saldo");
-
-                //user = new User(id, nombre, apellido, email, genero, password);
-                //users.add(user);
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            dataBaseConect.close(rs);
-            dataBaseConect.close(stmt);
-            dataBaseConect.close(conn);
-        }
-        return users;
-    }
     
     
     public boolean insertar(User user) {
+        
+        //metodo para insertar datos en la base de datos. 
         
         Connection conn1 = null;
         PreparedStatement stmt1 = null;
@@ -71,6 +39,9 @@ public class UserConnect {
         String validate = null;
         
         try {
+            
+            //primero se corrobora que el mail no este registrado
+            
             conn1 = dataBaseConect.getConnection();
             stmt1 = conn1.prepareStatement(SQL_VALIDATE_EMAIL);
             stmt1.setString(1, user.getEmail());
@@ -78,10 +49,15 @@ public class UserConnect {
             
             status = rs.next();
             
+            //si existe se manda al Servlet a la parte de error en el registro
+            
             if (status == true) {
                 user.setValid(false);
                 System.out.println("Usuario ya existente");
             } else {
+            
+            //de lo contrario se al servlet a la parte de registro exitoso
+                
                 user.setValid(true);
                 conn = dataBaseConect.getConnection();
                 stmt = conn.prepareStatement(SQL_INSERT);
@@ -108,12 +84,17 @@ public class UserConnect {
     
     public boolean login(User user) {
 
+        //metodo para hacer login y validar 
+        
          boolean status = false;
          Connection conn = null;
          PreparedStatement stmt = null;
          ResultSet rs = null;
          int rows = 0;
          try {
+             
+             //se corrobora en la base de datos que exista el mail y password
+             
              conn = dataBaseConect.getConnection();
              stmt = conn.prepareStatement(SQL_SELECT_LOGIN);
              stmt.setString(1, user.getEmail());
@@ -122,10 +103,14 @@ public class UserConnect {
             
              status = rs.next();
 
+             //si existe, se manda al Servlet a la parte de exito en el login
+             
              if (status) {
                  user.setValid(status);
                  System.out.println("Exito en el login");
              } else {
+                 
+            // de lo contrario se manda al Servlet a la parte de error en el login     
                  user.setValid(false);
                  System.out.println("Error al loggear");
              }
@@ -154,93 +139,4 @@ public class UserConnect {
 		}
 	}
  }
-    
-    
-    
-    
-/*
-    
-    public int actualizar(User user) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-        try {
-            conn = dataBaseConect.getConnection();
-            stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, user.getNombre());
-            stmt.setString(2, user.getApellido());
-            stmt.setString(3, user.getEmail());
-            stmt.setString(4, user.getGenero());
-            stmt.setString(5, user.getPassword());
-            stmt.setInt(6, user.getId());
-
-            rows = stmt.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            dataBaseConect.close(stmt);
-            dataBaseConect.close(conn);
-        }
-        return rows;
-    }
-
-    public int eliminar(User user) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-        try {
-            conn = dataBaseConect.getConnection();
-            stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setInt(1, user.getId());
-
-            rows = stmt.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            dataBaseConect.close(stmt);
-            dataBaseConect.close(conn);
-        }
-        return rows;
-    }
-    
-    
-    
-    
-    
-         
-        public User encontrar(User user) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try {
-            conn = dataBaseConect.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT_BY_ID);
-            stmt.setInt(1, user.getId());
-            rs = stmt.executeQuery();
-            rs.absolute(1);//nos posicionamos en el primer registro devuelto
-
-            String nombre = rs.getString("nombre");
-            String apellido = rs.getString("apellido");
-            String email = rs.getString("email");
-            String genero = rs.getString("genero");
-            String passw = rs.getString("password");
-
-            user.setNombre(nombre);
-            user.setApellido(apellido);
-            user.setEmail(email);
-            user.setGenero(genero);
-            user.setPassword(passw);
-
-        } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-        } finally {
-            dataBaseConect.close(rs);
-            dataBaseConect.close(stmt);
-            dataBaseConect.close(conn);
-        }
-        return user;
-    } 
-    
-*/
-    
     

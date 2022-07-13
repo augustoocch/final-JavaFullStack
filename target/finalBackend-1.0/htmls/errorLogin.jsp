@@ -6,7 +6,7 @@
 <html>
 
     <head>
-        <title>B.A - Error de registro</title>
+        <title>B.A - Error de credenciales</title>
         <meta charset='utf-8'>
         <meta name="author" content="Augusto Occhiuzzi"/>
         <meta name='viewport' content='width=device-width, initial-scale=1'/>
@@ -16,7 +16,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/> 
         <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&family=Nunito:wght@200&family=Smooch+Sans:wght@100&display=swap" rel="stylesheet">
-        <link rel='stylesheet' type='text/css' media='screen' href='../css/styles.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href="${pageContext.request.contextPath}/css/styles.css" />
         
         <!--Bootstrap-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -27,7 +27,7 @@
         
         <body>
             <header>
-              <nav class="navbar fixed-top navbar-expand-lg">
+              <nav class="navbar fixed-top navbar-expand-lg" style="background-color: black;">
                 <img id="logoNav" src="../images/logo_BA.png"/>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -42,17 +42,17 @@
                             aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);">
                             Servicios
                           </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Venta</a>
-                            <a class="dropdown-item" href="#">Colocacion</a>
-                            <a class="dropdown-item" href="#">Reparacion</a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: black;">
+                            <a class="dropdown-item" href="#" style="color: white;">Venta</a>
+                            <a class="dropdown-item" href="#" style="color: white;">Colocacion</a>
+                            <a class="dropdown-item" href="#" style="color: white;">Reparacion</a>
                             <a class="nav-link dropright dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                               Pedidos
                             </a>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="login.jsp">Ingresar</a>
-                                <a class="dropdown-item" href="#">Consultar</a>
+                              <div class="dropdown-menu" style="background-color: black;">
+                                <a class="dropdown-item" href="login.jsp" style="color: white;">Ingresar</a>
+                                <a class="dropdown-item" href="#" style="color: white;">Consultar</a>
                               </div>
                           </div>
                         </li>
@@ -60,10 +60,10 @@
                           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);">
                             Acerca de
                           </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Nosotros</a>
-                            <a class="dropdown-item" href="#">Nuestra Mision</a>
-                            <a class="dropdown-item" href="#">Historia</a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: black;">
+                            <a class="dropdown-item" href="#" style="color: white;">Nosotros</a>
+                            <a class="dropdown-item" href="#" style="color: white;">Nuestra Mision</a>
+                            <a class="dropdown-item" href="#" style="color: white;">Historia</a>
                           </div>
                         <li class="nav-item">
                             <a class="nav-link mr-4" href="#form" style="color: rgb(255, 255, 255);">Contacto</a>
@@ -80,7 +80,7 @@
                 <br>
                 <label>Credenciales incorrectas</label>
                 <div>
-                    <p id="volver"><b>Volver al<b></p><a href="login.jsp"> inicio de sesion</a>
+                    <p id="volver"><b>Volver al<b><a href="login.jsp"> inicio de sesion</a></p>
                 </div>    
               </div>    
             </main>

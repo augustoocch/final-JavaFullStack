@@ -3,6 +3,7 @@ package servlet;
 import Data.UserConnect;
 import domain.User;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,8 @@ public class Servlet extends HttpServlet{
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        //se recibe la accion desde el jsp y se redirecciona
         
         String accion = request.getParameter("accion");
         if (accion != null) {
@@ -44,20 +47,22 @@ public class Servlet extends HttpServlet{
         String password = request.getParameter("password");
         
     
-        //Creamos objeto de cliente
-        User usuarioRegistro = new User(nombre, apellido, email, genero, password);
-    
-        //Se inserta       
+        //Creamos el objeto y asignamos valores
+        User usuarioRegistro = new User(nombre, apellido, email, genero, password);      
         boolean registroModificado = new UserConnect().insertar(usuarioRegistro);
         
-        //Se lleva a pagina de error en el registro a desplegar el listado
+        //Se lleva a pagina de exito en el registro
         if(usuarioRegistro.isValid()){
-            response.sendRedirect("htmls/exito.jsp");
+            response.sendRedirect("htmls/exitoRegistro.jsp");
             request.setAttribute("emailSuccess", email);
         } else {
+            
+        //de lo contrario se va al jsp de error en el registro
+        
             System.out.println("Usuario ya registrado, saliendo del servlet al error.jsp");
             request.setAttribute("emailError", email);
-            response.sendRedirect("htmls/error.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("htmls/errorRegister.jsp");
+            rd.forward(request, response);
         }
     }
     
@@ -65,20 +70,25 @@ public class Servlet extends HttpServlet{
     
     public void loginUsuario (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
         
+        //recuperamos valores del formulario
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         
+        //creamos el objeto y asignamos valores
         User usuarioLogin = new User(email, password);
-        
         boolean validacion = new UserConnect().login(usuarioLogin);
                 
         if (usuarioLogin.isValid()){
+            //Si el usuario es valido, se le asigna el atributo y se lleva al mensaje de bienvenida
             HttpSession session = request.getSession();
             session.setAttribute("username",email);
-            response.sendRedirect("htmls/logged.jsp");
+            request.setAttribute("email", email);
+            RequestDispatcher rd = request.getRequestDispatcher("htmls/exitoLogin.jsp");
+            rd.forward(request, response);
             System.out.println("Validacion generada, email y passw correctos");
         } else {
+            //De lo contrario se lleva a la pagina de error
             response.getWriter().print("Credenciales incorrectas");
             response.sendRedirect("htmls/errorLogin.jsp");
             //HttpSession session = request.getSession();

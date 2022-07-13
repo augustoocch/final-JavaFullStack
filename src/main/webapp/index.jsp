@@ -1,3 +1,7 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="en_US"/>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&family=Nunito:wght@200&family=Smooch+Sans:wght@100&display=swap" rel="stylesheet">
-  <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href="${pageContext.request.contextPath}/css/styles.css" />
 
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -57,16 +61,19 @@
   <main>
     <div class="containerImage">
       <div class="cajaInferior"></div>
-      </div class="backImage">
-        <img class="backgroundImage" src="images/597925.jpg">
+      <div class="backImage">
+        <img class="backgroundImage" src="${pageContext.request.contextPath}/images/597925.jpg">
       </div>
       <div class="cajaInferior"></div>
     </div>
+      <br>
     <h1>Nuestra Historia</h1>
 
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis et atque dolore dolores, error sint. Repellendus, porro? Ipsam nesciunt non molestias unde repudiandae, nemo, nam quos eos in, vitae minus!
-
-
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Officiis et atque dolore dolores, error sint. Repellendus,
+        porro? Ipsam nesciunt non molestias unde repudiandae, nemo, 
+        nam quos eos in, vitae minus!
+    </p>    
   </main>
 </body>
 </html>
