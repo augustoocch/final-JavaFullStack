@@ -18,59 +18,39 @@
         <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&family=Nunito:wght@200&family=Smooch+Sans:wght@100&display=swap" rel="stylesheet">
         <link rel='stylesheet' type='text/css' media='screen' href="${pageContext.request.contextPath}/css/styles.css" />
         
-      <!--Bootstrap-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     </head>
         
         <body>
             <header>
-              <nav class="navbar fixed-top navbar-expand-lg" style="background-color: black;">
-                <img id="logoNav" src="../images/logo_BA.png"/>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                      <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="../index.jsp" style="color: rgb(255, 255, 255);">Inicio</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);">
-                            Servicios
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: black;">
-                            <a class="dropdown-item" href="#" style="color: white;">Venta</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Colocacion</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Reparacion</a>
-                            <a class="nav-link dropright dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                              Pedidos
-                            </a>
-                              <div class="dropdown-menu" style="background-color: black;">
-                                <a class="dropdown-item" href="login.jsp" style="color: white;">Ingresar</a>
-                                <a class="dropdown-item" href="#" style="color: white;">Consultar</a>
-                              </div>
-                          </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);">
-                            Acerca de
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: black;">
-                            <a class="dropdown-item" href="#" style="color: white;">Nosotros</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Nuestra Mision</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Historia</a>
-                          </div>
-                        <li class="nav-item">
-                            <a class="nav-link mr-4" href="#form" style="color: rgb(255, 255, 255);">Contacto</a>
-                        </li>
-                      </ul>
+              <nav class="navbar navbar-expand-lg bg-dark">
+                    <div class="container-fluid">
+                        <img id="logoNav" src="../images/logo_BA.png"/>
+                        <a class="navbar-brand text-bg-dark" href="../index.jsp">Buenos Aires Ciudad</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-bg-dark" aria-current="page" href="../index.jsp">Inicio</a>
+                                </li>
+                                <div class="dropdown ">
+                                    <a class="btn btn-warning dropdown-toggle text-bg-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Acciones
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                      <li><a class="dropdown-item" href="register.jsp">Registro</a></li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
                     </div>
-                  </nav>
+                </nav>
             </header>
             
             <main>

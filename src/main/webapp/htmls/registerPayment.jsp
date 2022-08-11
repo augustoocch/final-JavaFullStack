@@ -16,63 +16,41 @@
         <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&family=Nunito:wght@200&family=Smooch+Sans:wght@100&display=swap" rel="stylesheet">
         <link rel='stylesheet' type='text/css' media='screen' href='../css/styles.css'>
 
-        <!--Bootstrap-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+       <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     </head>
+        
+        <body>
+            <header>
+              <nav class="navbar navbar-expand-lg bg-dark">
+                    <div class="container-fluid">
+                        <img id="logoNav" src="../images/logo_BA.png"/>
+                        <a class="navbar-brand text-bg-dark" href="../index.jsp">Buenos Aires Ciudad</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active text-bg-dark" aria-current="page" href="../index.jsp">Inicio</a>
+                                </li>
+                                <div class="dropdown ">
+                                    <a class="btn btn-warning dropdown-toggle text-bg-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Acciones
+                                    </a>
 
-    <body>
-        <header>
-            <nav class="navbar fixed-top navbar-expand-lg" style="background-color: black;">
-                <img id="logoNav" src="../images/logo_BA.png"/>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                      <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="../index.jsp" style="color: rgb(255, 255, 255);">Inicio</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);">
-                            Servicios
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: black;">
-                            <a class="dropdown-item" href="#" style="color: white;">Venta</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Colocacion</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Reparacion</a>
-                            <a class="nav-link dropright dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                              Pedidos
-                            </a>
-                              <div class="dropdown-menu" style="background-color: black;">
-                                <a class="dropdown-item" href="login.jsp" style="color: white;">Ingresar</a>
-                                <a class="dropdown-item" href="#" style="color: white;">Consultar</a>
-                              </div>
-                          </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: rgb(255, 255, 255);">
-                            Acerca de
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color: black;">
-                            <a class="dropdown-item" href="#" style="color: white;">Nosotros</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Nuestra Mision</a>
-                            <a class="dropdown-item" href="#" style="color: white;">Historia</a>
-                          </div>
-                        <li class="nav-item">
-                            <a class="nav-link mr-4" href="#form" style="color: rgb(255, 255, 255);">Contacto</a>
-                        </li>
-                      </ul>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+                                      <li><a class="dropdown-item" href="register.jsp">Registro</a></li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
                     </div>
-                  </nav>
-        </header>
+                </nav>
+            </header>
 
-    <body>
         <main>
             <section id="masterSectionRegister">
                 <div class="centerRequest">
@@ -93,10 +71,12 @@
                                     <label id="descripcion">Apellido</label>
                                 </div>
                             </div>
-                            <div class="flexbox-container">
-                                <div class="contenedor">
-                                    <input type="text" class="form-control" id="datosCant" placeholder="Nombre" required>
-                                    <input type="text" class="form-control" id="tipoDesc" placeholder="Apellido" required>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
                                 </div>
                             </div>
                         </div>
@@ -106,53 +86,43 @@
                             <label>Nombre de usuario</label>
                         </div>
 
-                        <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                            </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
 
                         <div class="identifyer">
                             <label>Email</label><label id="optional"> (Optional)</label>
                         </div>
 
-                        <div class="form-group">
-                            <input type="email" id="email" class="form-control" placeholder="Ingrese email" required />
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="emailPay" placeholder="nombre@example.com">
                         </div>
 
                         <div class="identifyer">
                             <label>Lugar de entrega</label>
                         </div>
 
-                        <div class="form-group">
+                        <div class="mb-3">
                             <input type="email" id="email" class="form-control" placeholder="Ingrese lugar" required />
                         </div>
-
-                        <div class="form-row">
-                            <div class="col-4">
-                                <label class="identifyer">Localidad</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Ciudad</label>
+                                <input type="text" class="form-control" id="inputCity">
                             </div>
-                            <div class="col-4">
-                                <label class="identifyer">Provincia</label>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Provincia</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Seleccionar...</option>
+                                    <option>...</option>
+                                </select>
                             </div>
-                            <div class="col-4">
-                                <label class="identifyer">Cod. Postal</label>
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">C.P.</label>
+                                <input type="text" class="form-control" id="inputZip">
                             </div>
-                        </div>
-
-
-                        <div class="form-row">
-                            <div class="col-4">
-                                <input type="text" class="form-control" placeholder="Localidad">
-                            </div>
-                            <div class="col-4">
-                                <input type="text" class="form-control" placeholder="Provincia">
-                            </div>
-                            <div class="col-4">
-                                <input type="text" class="form-control" placeholder="C.P.">
-                            </div>
-                        </div>
+                        </div>    
                     </form>
 
                     <div id="medioPago">
@@ -163,41 +133,35 @@
                     </div>
 
                     <form>
-                        <div class="form-row">
-                            <div class="col-6">
-                                <label class="identifyer">Nombre del titular de la tarjeta</label>
-                            </div>
-                            <div class="col-6">
-                                <label class="identifyer">Numero de tarjeta</label>
-                            </div>
+                        <div class="flexbox-container">
+                                <div class="contenedorDescripcion">
+                                    <label id="descripcion">Nombre Titular Tarjeta</label>
+                                    <label id="descripcion">Numero Tarjeta</label>
+                                </div>
                         </div>
-                        <div class="form-row">
-                            <div class="col-6">
-                                <input type="text" class="form-control" placeholder="Localidad">
-                            </div>
-                            <div class="col-6">
-                                <input type="number" class="form-control" placeholder="Provincia">
-                            </div>
+                        <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Nombre titular" aria-label="First name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Numero tarjeta" aria-label="Last name">
+                                </div>
                         </div>
 
-                        <div class="datosTarjeta">
-                            <div class="form-row datosTarjRow">
-                                <div class="col-6">
-                                    <label class="identifyer">Fecha de Vto.</label>
-                                </div>
-                                <div class="col-6">
-                                    <label class="identifyer">Codigo</label>
-                                </div>
+                        <div class="flexbox-container">
+                            <div class="contenedorDescripcion">
+                                <label id="descripcion">Fecha de Vto.</label>
+                                <label id="descripcion">Codigo</label>
                             </div>
-                            <div class="form-row datosTarjRow">
-                                <div class="col-6">
-                                    <input type="date" class="form-control">
-                                </div>
-                                <div class="col-6">
-                                    <input type="number" class="form-control">
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Nombre titular" aria-label="First name">
                             </div>
-                        </div>    
+                            <div class="col">
+                                <input type="number" class="form-control" placeholder="Numero tarjeta" aria-label="Last name">
+                            </div>
+                        </div>
                     </form>
                 </div>  
             </section>          
